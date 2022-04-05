@@ -1,4 +1,4 @@
-<h1 align="center">Audinary: a clock in text format</h1>
+## Audinary: a clock in text format
 
 ### About Audinary
 
