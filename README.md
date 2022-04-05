@@ -17,9 +17,11 @@ Audinary is a cinnamon desklet that displays time in text format. It provides:
 
 Audinary depends on:
 
- [cAudio](https://github.com/R4stl1n/cAudio): For notification
+[cAudio](https://github.com/R4stl1n/cAudio): For notification
 
 [libhttpserver](https://github.com/etr/libhttpserver): For communication with the time daemon
+
+[audinary-pack](https://github.com/zenon8adams/audinary-pack): For translation to your locale
 
 
 
