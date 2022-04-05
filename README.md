@@ -19,7 +19,7 @@ Audinary depends on:
 
  [cAudio](https://github.com/R4stl1n/cAudio): For notification
 
-[libhttpserver](https://github.com/etr/libhttpserver): For communication the time daemon
+[libhttpserver](https://github.com/etr/libhttpserver): For communication with the time daemon
 
 
 
