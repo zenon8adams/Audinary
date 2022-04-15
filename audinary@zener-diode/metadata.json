@@ -1,0 +1,9 @@
+{
+    "uuid": "audinary@zener-diode",
+    "name": "audinary",
+    "description": "A desklet that displays time in form of text",
+    "prevent-decorations": false,
+    "max-instances": "1",
+    "author": "Adesina Meekness",
+    "version": "1.0"
+}

@@ -1,0 +1,11 @@
+.clock_container_style {
+    background-color: rgba(0, 0, 0, 0.363);
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+
+.time_label_style {
+    font-size: 25px;
+    color: white;
+}
