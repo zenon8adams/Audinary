@@ -40,8 +40,6 @@ int main( int ac, char *av[])
     umask(0);
 
     close( STDIN_FILENO);
-//    close( STDOUT_FILENO);
-//    close( STDERR_FILENO);
 
     openlog("Audinary", LOG_PID | LOG_NDELAY | LOG_CONS | LOG_PERROR, LOG_DAEMON);
     setlogmask( LOG_UPTO( LOG_DEBUG));
@@ -63,12 +61,17 @@ int main( int ac, char *av[])
 
     try {
 
-        if (ac >= 3) {
-            Beeper::instance()->installBeeper(av[ 1]);
+        extern char _binary_beep_start[];
+        extern char _binary_beep_end[];
 
-            HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
-            TextualTime::instance().setRefrenceLocalization( decoder.retrieve( av[ 2]));
-        }
+        extern char _binary_i18n_start[];
+        extern char _binary_i18n_end[];
+
+        HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
+        TextualTime::instance().setRefrenceLocalization( std::string((char *)&_binary_i18n_start, (char *)&_binary_i18n_end));
+
+        size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
+        Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
 
         serve();
 
@@ -82,6 +85,18 @@ int main( int ac, char *av[])
     }
 
 #elif defined(DEVELOPMENT)
+
+    extern char _binary_beep_start[];
+    extern char _binary_beep_end[];
+
+    extern char _binary_i18n_start[];
+    extern char _binary_i18n_end[];
+
+    HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
+    TextualTime::instance().setRefrenceLocalization( std::string((char *)&_binary_i18n_start, (char *)&_binary_i18n_end));
+    size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
+    Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
+
     if( ac >= 3)
     {
 //        Beeper::instance()->installBeeper(av[ 1]);

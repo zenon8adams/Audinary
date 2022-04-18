@@ -21,13 +21,12 @@ NAME=audinary
 PIDFILE=/run/$NAME.pid
 DESC="Textual Time Desklet"
 SCRIPTNAME=/etc/init.d/audinary
-DAEMON_ARGS="$ROOT_PATH/notify.ogg $ROOT_PATH/english.loc"
 
 . /lib/lsb/init-functions
 
 case "$1" in
  	  start)	log_daemon_msg "Starting $DESC" "$NAME"
-				start-stop-daemon --exec "$DAEMON" --oknodo --start -- $DAEMON_ARGS
+				start-stop-daemon --exec "$DAEMON" --oknodo --start
 				log_end_msg $?
 				;;
 	   stop)	log_daemon_msg "Stopping $DESC" "$NAME"
@@ -36,7 +35,7 @@ case "$1" in
 				;;
 	restart)	log_daemon_msg "Restarting $DESC" "$NAME"
 				if start-stop-daemon --signal 9 --exec "$DAEMON" --retry 5 --stop; then
-					start-stop-daemon --exec "$DAEMON" --oknodo --start -- $DAEMON_ARGS
+					start-stop-daemon --exec "$DAEMON" --oknodo --start
 				fi
 				log_daemon_msg $?
 				;;
