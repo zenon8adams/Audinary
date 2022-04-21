@@ -1,4 +1,4 @@
-## Audinary: a clock in text format
+# Audinary: a clock in text format
 
 ### About Audinary
 
