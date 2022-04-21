@@ -167,7 +167,7 @@ class TextualTimeDesklet extends Desklet.Desklet {
         this._requestParams.notification = this.notification;
         this._requestParams.track        = this.audioTrack;
 
-        if( this.localePack !== "" && this._activeLocale !== this.localePack)
+        if( this.localePack != "" && this._activeLocale != this.localePack)
         {
             this._requestParams.emitID = true;
             this._requestParams.i18n = this.localePack;
@@ -188,10 +188,10 @@ class TextualTimeDesklet extends Desklet.Desklet {
         for( ; pos < scheme.length; ++pos)
         {
             const value = scheme[ pos];
-            if( value === ' ')
+            if( value == ' ')
                 continue;
 
-            if( value === '.')
+            if( value == '.')
             {
                 is_float = true;
                 continue;
@@ -206,16 +206,11 @@ class TextualTimeDesklet extends Desklet.Desklet {
                 break;
         }
 
-        if( at !== pos)
+        if( at != pos)
             values.push( weight);
 
         return pos;
     }
-
-    /*
-    * Routine to parse rgb/rgba color scheme
-    * and blend it wih the given opacity
-    */
 
     _parseColor( color)
     {

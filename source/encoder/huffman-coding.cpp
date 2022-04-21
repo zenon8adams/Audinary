@@ -25,7 +25,7 @@
 
 #define REV64( value ) \
     ({ \
-    typeof(value) qword = value;\
+    	auto qword = value;\
         uint64_t m1  = 0x5555555555555555U, \
                  m2  = 0x3333333333333333U, \
                  m4  = 0x0F0F0F0F0F0F0F0FU, \
