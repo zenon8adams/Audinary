@@ -3,6 +3,7 @@
 </p>
 
 <p align="center">
+  <a title="Distro" target="_blank" href="https://linuxmint.com/"><img src="https://img.shields.io/badge/Linux_Mint-87CF3E?style=for-the-badge&logo=linux-mint&logoColor=white"></a>
   <a title="Crowdin" target="_blank" href="https://crowdin.com/project/audinary"><img src="https://badges.crowdin.net/audinary/localized.svg"></a>
 </p>
 
