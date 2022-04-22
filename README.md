@@ -2,6 +2,10 @@
   <img align="center" src="https://github.com/zenon8adams/audinary/blob/master/icon.png" alt="screenshot"/>
 </p>
 
+<p align="center">
+  <a title="Crowdin" target="_blank" href="https://crowdin.com/project/audinary"><img src="https://badges.crowdin.net/audinary/localized.svg"></a>
+</p>
+
 ## About Audinary
 
 Audinary is a cinnamon desklet that displays time in text format. It provides:
