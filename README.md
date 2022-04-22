@@ -1,6 +1,8 @@
-# Audinary: a clock in text format
+<p align="center">
+  <img align="center" src="https://github.com/zenon8adams/audinary/blob/master/icon.png" alt="screenshot"/>
+</p>
 
-### About Audinary
+## About Audinary
 
 Audinary is a cinnamon desklet that displays time in text format. It provides:
 
