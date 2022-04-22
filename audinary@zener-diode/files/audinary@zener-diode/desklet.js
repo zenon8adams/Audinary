@@ -123,6 +123,7 @@ class TextualTimeDesklet extends Desklet.Desklet {
 			*  set it as the new pack else,
 			*  tell generator to generate with it's own imbued locale.
 			*/
+
 			if( this._requestParams.emitID)
 			{
 				if( response.i18n)

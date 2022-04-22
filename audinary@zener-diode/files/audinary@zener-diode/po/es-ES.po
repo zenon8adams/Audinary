@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: audinary\n"
+"POT-Creation-Date: 2022-04-22 01:24+0100\n"
+"PO-Revision-Date: 2022-04-22 03:14\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: audinary\n"
+"X-Crowdin-Project-ID: 511602\n"
+"X-Crowdin-Language: es-ES\n"
+"X-Crowdin-File: audinary@zener-diode.pot\n"
+"X-Crowdin-File-ID: 14\n"
+
+#: desklet.js:59
+msgid "Textual Time"
+msgstr "Tiempo textual"
+
+#: desklet.js:75 desklet.js:149
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: desklet.js:77
+msgid "Initial setup completed!"
+msgstr "¡Configuración inicial completada!"
+
+#: desklet.js:228
+msgid "Desklet Added"
+msgstr "Escritorio añadido"
+
+#: desklet.js:233
+msgid "Desklet Removed"
+msgstr "Escritorio eliminado"
+
+#. audinary@zener-diode->settings-schema.json->notification->description
+msgid "Select hour notification type"
+msgstr "Seleccionar tipo de notificación de hora"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "None"
+msgstr "Ninguna"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "Beep"
+msgstr "Pico"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->description
+msgid "Select your preferred notification track"
+msgstr "Seleccione su pista de notificación preferida"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->tooltip
+msgid "Select the notification track for hourly alarm"
+msgstr "Seleccione la pista de notificaciones para la alarma por hora"
+
+#. audinary@zener-diode->settings-schema.json->font->description
+msgid "Select a font"
+msgstr "Seleccione una fuente"
+
+#. audinary@zener-diode->settings-schema.json->font-size->description
+msgid "Font size"
+msgstr "Tamaño de fuente"
+
+#. audinary@zener-diode->settings-schema.json->font-size->tooltip
+msgid "Increase or decrease the note font size."
+msgstr "Aumentar o disminuir el tamaño de la fuente de las notas."
+
+#. audinary@zener-diode->settings-schema.json->font-bold->description
+msgid "Make text bold"
+msgstr "Hacer texto en negrita"
+
+#. audinary@zener-diode->settings-schema.json->font-italic->description
+msgid "Make text italic"
+msgstr "Hacer cursiva de texto"
+
+#. audinary@zener-diode->settings-schema.json->text-color->description
+msgid "Text color"
+msgstr "Color del texto"
+
+#. audinary@zener-diode->settings-schema.json->text-color->tooltip
+msgid "Set the text color for your widget"
+msgstr "Establecer el color del texto para su widget"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->description
+msgid "Text opacity"
+msgstr "Opacidad del texto"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->tooltip
+msgid "Set the opacity of the widget words"
+msgstr "Establecer la opacidad de las palabras del widget"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->description
+msgid "Set widget words format"
+msgstr "Establecer formato de palabras del widget"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Mixed"
+msgstr "Mixto"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Uppercase"
+msgstr "Todas mayúsculas"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Lowercase"
+msgstr "Todas minúsculas"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Capitalize only first character"
+msgstr "Capitalizar solo el primer carácter"
+
+#. audinary@zener-diode->settings-schema.json->background-color->description
+msgid "Background color"
+msgstr "Color de fondo"
+
+#. audinary@zener-diode->settings-schema.json->background-color->tooltip
+msgid "Set the background color for your widget"
+msgstr "Establecer el color de fondo para su widget"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->description
+msgid "Background opacity"
+msgstr "Opacidad del fondo"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->tooltip
+msgid "Set the opactiy of the background of your widget"
+msgstr "Establece la opacidad del fondo de tu widget"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->description
+msgid "Select a locale pack"
+msgstr "Seleccione un paquete regional"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->tooltip
+msgid "Select the file required for your language translation"
+msgstr "Seleccione el archivo necesario para la traducción de su idioma"
+

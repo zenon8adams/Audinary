@@ -1,0 +1,93 @@
+{
+  "notification": {
+    "type": "combobox",
+    "default": "none",
+    "description": "Select hour notification type",
+    "options": {
+      "None": "none",
+      "Beep": "beep"
+    }
+  },
+  "custom-track": {
+    "type": "filechooser",
+    "default": "",
+    "description": "Select your preferred notification track",
+    "tooltip": "Select the notification track for hourly alarm",
+    "allow-none": true
+  },
+  "font": {
+    "type": "combobox",
+    "default": "Ubuntu",
+    "description": "Select a font",
+    "options": {
+    }
+  },
+  "font-size": {
+    "type": "spinbutton",
+    "default": 25,
+    "min": 12,
+    "max": 40,
+    "step": 1,
+    "units": "point",
+    "description": "Font size",
+    "tooltip": "Increase or decrease the note font size."
+  },
+  "font-bold": {
+    "type": "checkbox",
+    "description": "Make text bold",
+    "default": false
+  },
+  "font-italic": {
+    "type": "checkbox",
+    "description": "Make text italic",
+    "default": false
+  },
+  "text-color": {
+    "type": "colorchooser",
+    "default": "rgb(255,255,255)",
+    "description": "Text color",
+    "tooltip": "Set the text color for your widget"
+  },
+  "text-opacity": {
+    "type": "spinbutton",
+    "default": 1,
+    "min": 0,
+    "max": 1,
+    "step": 0.01,
+    "description": "Text opacity",
+    "tooltip": "Set the opacity of the widget words"
+  },
+  "text-casing": {
+    "type": "combobox",
+    "default": "mixed",
+    "description": "Set widget words format",
+    "options": {
+      "Mixed": "mixed",
+      "All Uppercase": "uppercase",
+      "All Lowercase": "lowercase",
+      "Capitalize only first character": "capitalize"
+    }
+  },
+  "background-color": {
+    "type": "colorchooser",
+    "default": "rgb(0, 0, 0)",
+    "description": "Background color",
+    "tooltip": "Set the background color for your widget"
+  },
+  "background-opacity": {
+    "type": "spinbutton",
+    "default": 0.363,
+    "min": 0,
+    "max": 1,
+    "step": 0.001,
+    "description": "Background opacity",
+    "tooltip": "Set the opactiy of the background of your widget"
+  },
+  "locale-pack": {
+    "type": "filechooser",
+    "default": "",
+    "description": "Select a locale pack",
+    "tooltip": "Select the file required for your language translation",
+    "allow-none": true
+  }
+}

@@ -38,7 +38,7 @@ install: $(PACKAGE)
 	update-rc.d $(PACKAGE) defaults
 	update-rc.d $(PACKAGE) enable 2
 	install -d $(deskletdir)
-	cp -r $(desklet) $(deskletdir)
+	cp -r $(desklet)/files/$(desklet) $(deskletdir)
 	chown $(USER):$(USER) $(deskletdir)/$(desklet)
 	chown $(USER):$(USER) $(deskletdir)/$(desklet)/*
 	systemctl start $(PACKAGE).service

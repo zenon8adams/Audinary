@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: audinary\n"
+"POT-Creation-Date: 2022-04-22 01:24+0100\n"
+"PO-Revision-Date: 2022-04-22 03:14\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: audinary\n"
+"X-Crowdin-Project-ID: 511602\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: audinary@zener-diode.pot\n"
+"X-Crowdin-File-ID: 14\n"
+
+#: desklet.js:59
+msgid "Textual Time"
+msgstr "文本时间"
+
+#: desklet.js:75 desklet.js:149
+msgid "Loading..."
+msgstr "正在加载..."
+
+#: desklet.js:77
+msgid "Initial setup completed!"
+msgstr "初始设置完成！"
+
+#: desklet.js:228
+msgid "Desklet Added"
+msgstr "添加了桌面"
+
+#: desklet.js:233
+msgid "Desklet Removed"
+msgstr "桌面已移除"
+
+#. audinary@zener-diode->settings-schema.json->notification->description
+msgid "Select hour notification type"
+msgstr "选择小时通知类型"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "None"
+msgstr "无"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "Beep"
+msgstr "蜂鸣声"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->description
+msgid "Select your preferred notification track"
+msgstr "选择您首选的通知音轨"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->tooltip
+msgid "Select the notification track for hourly alarm"
+msgstr "选择每小时闹钟的通知轨道"
+
+#. audinary@zener-diode->settings-schema.json->font->description
+msgid "Select a font"
+msgstr "选择字体"
+
+#. audinary@zener-diode->settings-schema.json->font-size->description
+msgid "Font size"
+msgstr "字体大小"
+
+#. audinary@zener-diode->settings-schema.json->font-size->tooltip
+msgid "Increase or decrease the note font size."
+msgstr "增加或减少笔记字体大小。"
+
+#. audinary@zener-diode->settings-schema.json->font-bold->description
+msgid "Make text bold"
+msgstr "将文本加粗体"
+
+#. audinary@zener-diode->settings-schema.json->font-italic->description
+msgid "Make text italic"
+msgstr "文本斜体"
+
+#. audinary@zener-diode->settings-schema.json->text-color->description
+msgid "Text color"
+msgstr "文本颜色"
+
+#. audinary@zener-diode->settings-schema.json->text-color->tooltip
+msgid "Set the text color for your widget"
+msgstr "为小部件设置文本颜色"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->description
+msgid "Text opacity"
+msgstr "文本不透明度"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->tooltip
+msgid "Set the opacity of the widget words"
+msgstr "设置小部件字的不透明度"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->description
+msgid "Set widget words format"
+msgstr "设置小部件单词格式"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Mixed"
+msgstr "混合的"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Uppercase"
+msgstr "所有大写"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Lowercase"
+msgstr "全小写"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Capitalize only first character"
+msgstr "仅首字母大写"
+
+#. audinary@zener-diode->settings-schema.json->background-color->description
+msgid "Background color"
+msgstr "背景颜色"
+
+#. audinary@zener-diode->settings-schema.json->background-color->tooltip
+msgid "Set the background color for your widget"
+msgstr "设置小部件的背景颜色"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->description
+msgid "Background opacity"
+msgstr "背景不透明度"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->tooltip
+msgid "Set the opactiy of the background of your widget"
+msgstr "设置小部件背景的抗性"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->description
+msgid "Select a locale pack"
+msgstr "选择区域包"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->tooltip
+msgid "Select the file required for your language translation"
+msgstr "选择您的语言翻译所需的文件"
+

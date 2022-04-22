@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: audinary\n"
+"POT-Creation-Date: 2022-04-22 01:24+0100\n"
+"PO-Revision-Date: 2022-04-22 03:14\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Crowdin-Project: audinary\n"
+"X-Crowdin-Project-ID: 511602\n"
+"X-Crowdin-Language: ar\n"
+"X-Crowdin-File: audinary@zener-diode.pot\n"
+"X-Crowdin-File-ID: 14\n"
+
+#: desklet.js:59
+msgid "Textual Time"
+msgstr "الوقت النصي"
+
+#: desklet.js:75 desklet.js:149
+msgid "Loading..."
+msgstr "تحميل..."
+
+#: desklet.js:77
+msgid "Initial setup completed!"
+msgstr "تم الإعداد الأولي!"
+
+#: desklet.js:228
+msgid "Desklet Added"
+msgstr "تم إضافة المكتب"
+
+#: desklet.js:233
+msgid "Desklet Removed"
+msgstr "تم حذف المكتب"
+
+#. audinary@zener-diode->settings-schema.json->notification->description
+msgid "Select hour notification type"
+msgstr "حدد نوع الإشعار ساعة"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "None"
+msgstr "لا"
+
+#. audinary@zener-diode->settings-schema.json->notification->options
+msgid "Beep"
+msgstr "التنبيه"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->description
+msgid "Select your preferred notification track"
+msgstr "حدد مسار الإشعارات المفضلة لديك"
+
+#. audinary@zener-diode->settings-schema.json->custom-track->tooltip
+msgid "Select the notification track for hourly alarm"
+msgstr "حدد مسار الإشعار لمنبه الساعة"
+
+#. audinary@zener-diode->settings-schema.json->font->description
+msgid "Select a font"
+msgstr "حدد خط"
+
+#. audinary@zener-diode->settings-schema.json->font-size->description
+msgid "Font size"
+msgstr "حجم الخط"
+
+#. audinary@zener-diode->settings-schema.json->font-size->tooltip
+msgid "Increase or decrease the note font size."
+msgstr "زيادة أو تقليل حجم خط الملاحظة."
+
+#. audinary@zener-diode->settings-schema.json->font-bold->description
+msgid "Make text bold"
+msgstr "اصنع نص غامق"
+
+#. audinary@zener-diode->settings-schema.json->font-italic->description
+msgid "Make text italic"
+msgstr "جعل النص مائل"
+
+#. audinary@zener-diode->settings-schema.json->text-color->description
+msgid "Text color"
+msgstr "لون النص"
+
+#. audinary@zener-diode->settings-schema.json->text-color->tooltip
+msgid "Set the text color for your widget"
+msgstr "تعيين لون النص للواجهة المصغرة الخاصة بك"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->description
+msgid "Text opacity"
+msgstr "شفافية النص"
+
+#. audinary@zener-diode->settings-schema.json->text-opacity->tooltip
+msgid "Set the opacity of the widget words"
+msgstr "تعيين التعتيم للكلمات المصغرة"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->description
+msgid "Set widget words format"
+msgstr "تعيين تنسيق كلمات الويدجت"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Mixed"
+msgstr "مختلطة"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Uppercase"
+msgstr "كل الحروف العلوية"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "All Lowercase"
+msgstr "كلها صغيرة"
+
+#. audinary@zener-diode->settings-schema.json->text-casing->options
+msgid "Capitalize only first character"
+msgstr "رسمس فقط الحرف الأول"
+
+#. audinary@zener-diode->settings-schema.json->background-color->description
+msgid "Background color"
+msgstr "لون الخلفية"
+
+#. audinary@zener-diode->settings-schema.json->background-color->tooltip
+msgid "Set the background color for your widget"
+msgstr "تعيين لون الخلفية للأداة الخاصة بك"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->description
+msgid "Background opacity"
+msgstr "شفافية الخلفية"
+
+#. audinary@zener-diode->settings-schema.json->background-opacity->tooltip
+msgid "Set the opactiy of the background of your widget"
+msgstr "تعيين التعتيم لخلفية القطعة الخاصة بك"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->description
+msgid "Select a locale pack"
+msgstr "حدد حزمة محلية"
+
+#. audinary@zener-diode->settings-schema.json->locale-pack->tooltip
+msgid "Select the file required for your language translation"
+msgstr "حدد الملف المطلوب للترجمة اللغوية الخاصة بك"
+
