@@ -18,9 +18,17 @@ Audinary is a cinnamon desklet that displays time in text format. It provides:
 <li>Time presentation in all languages</li>
 </ul>
 
+## Screenshots
 
+<p float="left">
+  <img src="https://github.com/zenon8adams/audinary/blob/master/audinary%40zener-diode/screenshot.png"width="200" />
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://github.com/zenon8adams/audinary/blob/master/screenshot_bg.png" width="200"/> 
+  &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="https://github.com/zenon8adams/audinary/blob/master/screenshot_catalan.png" width="200" />
+</p>
 
-### Dependencies
+## Dependencies
 
 Audinary depends on:
 
