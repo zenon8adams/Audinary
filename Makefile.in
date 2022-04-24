@@ -1,0 +1,72 @@
+# @configure_input@
+
+# VPATH-specific substitution variables
+srcdir = @srcdir@
+VPATH  = @srcdir@
+
+# Compiler-specific substitution variables
+CFLAGS  = -std=c++17 -Wall
+EXTRAS  = $(srcdir)/deps/beep.o $(srcdir)/deps/i18n.o
+DEPS    = @LIBCAUDIO@ -lpthread @LIBHTTPSERVER@ -lfontconfig
+
+# Package-specific substitution variables
+PACKAGE = @PACKAGE_NAME@
+
+# Prefix-specific substitution variables
+prefix 	 	= @prefix@
+exec_prefix = @exec_prefix@
+sbindir		= @sbindir@
+sysconfdir  = @sysconfdir@
+
+# Installation-specific substitution variables
+environment	= cinnamon
+initdir		= $(sysconfdir)/init.d/
+systemdir	= $(sysconfdir)/systemd/system/
+deskletdir  = $$(eval echo ~$${SUDO_USER})/.local/share/$(environment)/desklets
+desklet		= $(PACKAGE)@zener-diode
+USER		= $$(eval echo $${SUDO_USER})
+
+all:
+	$(MAKE) $(PACKAGE)
+
+$(PACKAGE): $(srcdir)/source/intermediate driver.cpp
+	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(srcdir)/include -I.. $(EXTRAS) $(OBJS) -o $@ $(srcdir)/driver.cpp $(DEPS)
+
+include source/Makefile
+
+Makefile: Makefile.in config.status
+	./config.status $@
+config.status: configure
+	./config.status --recheck
+
+install:
+	which $(environment)
+	install -d $(DESTDIR)$(sbindir)
+	install $(srcdir)/$(PACKAGE) $(DESTDIR)$(sbindir)
+	sed -i.bak "s|ROOT_PATH=.*|ROOT_PATH=$(sbindir)|" $(srcdir)/service/$(PACKAGE)
+	sed -i.bak "s|WorkingDirectory=.*|WorkingDirectory=$(sbindir)|" $(srcdir)/service/$(PACKAGE).service
+	install -d $(DESTDIR)$(initdir) $(DESTDIR)$(systemdir)
+	cp $(srcdir)/service/$(PACKAGE) $(DESTDIR)$(initdir)
+	cp $(srcdir)/service/$(PACKAGE).service $(DESTDIR)$(systemdir)
+	@echo ${USER_HOME}
+	systemctl daemon-reload
+	-systemctl stop $(PACKAGE).service
+	update-rc.d $(PACKAGE) defaults
+	update-rc.d $(PACKAGE) enable 2
+	install -d $(DESTDIR)$(deskletdir)
+	cp -r $(srcdir)/$(desklet)/files/$(desklet) $(DESTDIR)$(deskletdir)
+	chown $(USER):$(USER) $(DESTDIR)$(deskletdir)/$(desklet)
+	chown $(USER):$(USER) $(DESTDIR)$(deskletdir)/$(desklet)/*
+	systemctl start $(PACKAGE).service
+
+uninstall:
+	rm -f $(DESTDIR)$(sbindir)/$(PACKAGE)
+	-rmdir $(DESTDIR)$(sbindir) >/dev/null 2>&1
+	rm -f $(DESTDIR)$(initdir)/$(PACKAGE)
+	rm -f $(DESTDIR)$(systemdir)/$(PACKAGE).service
+	rm -rf $(DESTDIR)$(deskletdir)/$(desklet)
+	systemctl stop $(PACKAGE).service
+	update-rc.d -f $(PACKAGE) remove
+	systemctl daemon-reload
+
+.PHONY: all install uninstall clean

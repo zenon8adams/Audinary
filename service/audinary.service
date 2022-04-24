@@ -6,7 +6,7 @@ After=time-sync.target
 
 [Service]
 Type=forking
-WorkingDirectory=/usr/sbin
+WorkingDirectory=
 Restart=on-failure
 RestartSec=5
 TimeoutSec=5min
