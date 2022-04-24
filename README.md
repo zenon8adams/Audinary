@@ -44,6 +44,11 @@ mkdir build
 cd build
 ../configure --sysconfdir=/etc
 make
+```
+
+## Installing
+From within build directory, run:
+```
 sudo make install
 ```
 
