@@ -38,7 +38,14 @@ Audinary depends on:
 
 [audinary-pack](https://github.com/zenon8adams/audinary-pack): For translation to your locale
 
-
+## Building
+```
+mkdir build
+cd build
+../configure --sysconfdir=/etc
+make
+sudo make install
+```
 
 
 
