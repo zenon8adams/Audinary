@@ -1,7 +1,10 @@
 #ifndef BEEPER_HPP
 #define BEEPER_HPP
 
-#include  <cAudio/cAudio.h>
+#if defined(HOUR_NOTIFICATION)
+    #include  <cAudio/cAudio.h>
+#endif
+
 #include <atomic>
 #include <functional>
 #include <utility>
@@ -26,6 +29,7 @@ public:
 
     void installBeeper( const std::string& filename)
     {
+#if defined(HOUR_NOTIFICATION)
         std::ifstream handle( filename, std::ios::in);
         if( handle)
         {
@@ -57,10 +61,12 @@ public:
             beeper_extension = std::string( filename.cbegin() + ext + 1, filename.cend());
             setEnabled( true);
         }
+#endif
     }
 
     void installBeeper( const char *start, size_t bytes)
     {
+#if defined(HOUR_NOTIFICATION)
         if( start == nullptr || bytes == 0)
             return;
 
@@ -71,17 +77,20 @@ public:
         beep_data_.size = bytes;
         beep_data_.readonly = true;
         setEnabled(true);
-
+#endif
     }
 
     void setEnabled( bool state)
     {
+#if defined(HOUR_NOTIFICATION)
         is_enabled_ = state;
         if( !is_enabled_) audioManager_->stopAllSounds();
+#endif
     }
 
     void play()
     {
+#if defined(HOUR_NOTIFICATION)
         auto can_play = is_enabled_  && beep_data_.bptr && hasStopped();
         if( audioManager_ != nullptr && can_play)
         {
@@ -94,6 +103,7 @@ public:
                     cAudio::cAudioSleep(10);
             }
         }
+#endif
     }
 
 private:
@@ -105,27 +115,37 @@ private:
 
     bool hasStopped()
     {
+#if defined(HOUR_NOTIFICATION)
         return currentTrack_ == nullptr || !currentTrack_->isPlaying();
+#else
+        return false;
+#endif
     }
 
     Beeper()
     {
+#if defined(HOUR_NOTIFICATION)
         cAudio::getLogger()->unRegisterLogReceiver( "Console");
         cAudio::getLogger()->unRegisterLogReceiver( "File");
         audioManager_ = cAudio::createAudioManager( true);
+#endif
     }
 
     ~Beeper()
     {
+#if defined(HOUR_NOTIFICATION)
         if( audioManager_ != nullptr)
             cAudio::destroyAudioManager( audioManager_);
 
         if( beep_data_.bptr != nullptr && !beep_data_.readonly)
             free( ( char *)beep_data_.bptr);
+#endif
     }
 
+#if defined(HOUR_NOTIFICATION)
     cAudio::IAudioManager *audioManager_{};
     cAudio::IAudioSource *currentTrack_{};
+#endif
 };
 
 #endif //BEEPER_HPP

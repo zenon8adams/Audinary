@@ -1,3 +1,4 @@
+#include <cstring>
 #include "../../include/server/router.hpp"
 
 std::string Router::generateResponse( const std::unordered_map<std::string, std::string>& params)

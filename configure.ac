@@ -19,22 +19,47 @@ AC_PROG_INSTALL
 AC_LANG([C++])
 
 AC_CONFIG_SRCDIR([driver.cpp])
-#AC_CONFIG_HEADERS([config.h])
 AC_COPYRIGHT([Copyright (C) 2022 by Adesina Meekness. All Rights Reserved.])
 
 # Checks for custom headers
-AC_CHECK_HEADER([cAudio/cAudio.h], [AC_DEFINE([HAVE_CAUDIO_H], [1], [found cAudio.h])])
 AC_CHECK_HEADER([httpserver.hpp], [AC_DEFINE([HAVE_HTTPSERVER_H], [1], [found httpserver.h])])
 
 # Set default CXXFLAGS
 changequote({,})
-CXXFLAGS=`echo "$CXXFLAGS" | $SED -e 's/-g[0-9]*//g'`
+CXXFLAGS=`echo "$CXXFLAGS" | sed -e 's/-g[0-9]*//g'`
 changequote([,])
 
 CXXFLAGS="$CXXFLAGS -std=c++17 -Wall"
 
+AC_ARG_ENABLE([hour-notifier],
+	[AS_HELP_STRING([--disable-hour-notifier], [disable hour notification @<:@default: no@:>@])],
+	[hour_notifier=${enableval}], [hour_notifier=yes])
+
 # Checks for libraries.
-AC_SEARCH_LIBS([ov_open], [cAudio])
+if test "x${hour_notifier}" = xyes; then
+	AC_SEARCH_LIBS([ov_open], [cAudio], [has_caudio=yes], [has_caudio=no])
+
+	if test "x${has_caudio}" = xyes; then
+		AC_CHECK_HEADERS([cAudio/cAudio.h], [], [has_caudio=no])
+	fi
+
+	if test "x${has_caudio}" = xno; then
+		if test "x${hour_notifier}" = xyes; then
+			AC_MSG_WARN([
+				---------------------------------
+				Unable to find cAudio library.
+				Hour notification feature will be
+				disabled.
+				---------------------------------
+			])
+		fi
+		hour_notifier=no
+	fi
+fi
+
+if test "x${hour_notifier}" = xyes; then
+	AC_DEFINE([HOUR_NOTIFICATION], [1], [hour notification enabled])
+fi
 
 AC_SEARCH_LIBS([FcConfigGetCurrent], [fontconfig])
 
