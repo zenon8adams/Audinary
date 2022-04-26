@@ -40,9 +40,9 @@ Audinary depends on:
 
 ## Building
 ```
+./bootstrap.sh
 mkdir build
 cd build
-../bootstrap.sh
 ../configure --sysconfdir=/etc
 make
 ```
