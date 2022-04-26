@@ -43,7 +43,7 @@ Audinary depends on:
 ./bootstrap.sh
 mkdir build
 cd build
-../configure --sysconfdir=/etc
+../configure --disable-hour-notifier --sysconfdir=/etc
 make
 ```
 
