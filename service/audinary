@@ -13,7 +13,7 @@
 #	       for the textual time desklet. It runs a server @ http://localhost:3800/
 ### END INIT INFO
 
-ROOT_PATH=
+ROOT_PATH=/usr/local/sbin
 DAEMON=$ROOT_PATH/audinary
 NAME=audinary
 PIDFILE=/run/$NAME.pid

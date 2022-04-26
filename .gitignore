@@ -36,3 +36,12 @@
 .idea/
 cmake-build-debug/
 build/
+
+# Configuration Files
+install-sh
+configure
+Makefile
+autom4te.cache/
+
+# Miscellaneous
+*.bak

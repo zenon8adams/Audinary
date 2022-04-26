@@ -42,7 +42,7 @@ config.status: configure
 install:
 	which $(environment)
 	install -d $(DESTDIR)$(sbindir)
-	install $(srcdir)/$(PACKAGE) $(DESTDIR)$(sbindir)
+	install $(PACKAGE) $(DESTDIR)$(sbindir)
 	sed -i.bak "s|ROOT_PATH=.*|ROOT_PATH=$(sbindir)|" $(srcdir)/service/$(PACKAGE)
 	sed -i.bak "s|WorkingDirectory=.*|WorkingDirectory=$(sbindir)|" $(srcdir)/service/$(PACKAGE).service
 	install -d $(DESTDIR)$(initdir) $(DESTDIR)$(systemdir)
@@ -55,8 +55,8 @@ install:
 	update-rc.d $(PACKAGE) enable 2
 	install -d $(DESTDIR)$(deskletdir)
 	cp -r $(srcdir)/$(desklet)/files/$(desklet) $(DESTDIR)$(deskletdir)
-	chown $(USER):$(USER) $(DESTDIR)$(deskletdir)/$(desklet)
-	chown $(USER):$(USER) $(DESTDIR)$(deskletdir)/$(desklet)/*
+	chown $(USER): $(DESTDIR)$(deskletdir)/$(desklet)
+	chown -R $(USER): $(DESTDIR)$(deskletdir)/$(desklet)
 	systemctl start $(PACKAGE).service
 
 uninstall:
