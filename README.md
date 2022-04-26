@@ -52,10 +52,3 @@ From within build directory, run:
 ```
 sudo make install
 ```
-
-
-
-
-
-
-

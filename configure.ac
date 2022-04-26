@@ -93,3 +93,19 @@ AC_CHECK_FUNCS([munmap setlocale strchr])
 AC_CONFIG_FILES([Makefile
                  source/Makefile])
 AC_OUTPUT
+
+cat << EOF
+-------------------------------------------------
+${PACKAGE_NAME^} Version ${PACKAGE_VERSION}
+Prefix: '${prefix}'
+System Configuration Directory: ${sysconfdir}
+Compiler: '${CXX} ${CFLAGS} ${CXXFLAGS}'
+
+Package features:
+	Hour Notification: ${hour_notifier}
+
+Now type 'make @<:@<target>@:>@' where the optional <target> is:
+	all                 - build all binaries
+	install             - install ${PACKAGE_NAME^}
+--------------------------------------------------
+EOF
