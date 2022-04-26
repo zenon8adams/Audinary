@@ -12,22 +12,22 @@ OBJS 		 = textual-time.o numbers-to-words.o http-server.o router.o huffman-codin
 $(srcdir)/source/intermediate: $(OBJS)
 
 textual-time.o: $(MODEL_DIR)/textual-time.cpp $(IMODEL_DIR)/textual-time.hpp $(IMODEL_DIR)/beeper.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(MODEL_DIR)/textual-time.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(MODEL_DIR)/textual-time.cpp
 
 numbers-to-words.o: $(MODEL_DIR)/numbers-to-words.cpp $(IMODEL_DIR)/numbers-to-words.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(MODEL_DIR)/numbers-to-words.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(MODEL_DIR)/numbers-to-words.cpp
 
 http-server.o: $(SERVER_DIR)/http-server.cpp $(ISERVER_DIR)/http-server.hpp $(ISERVER_DIR)/router.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(SERVER_DIR)/http-server.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(SERVER_DIR)/http-server.cpp
 
 router.o: $(SERVER_DIR)/router.cpp $(ISERVER_DIR)/router.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(SERVER_DIR)/router.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(SERVER_DIR)/router.cpp
 
 huffman-coding.o: $(ENCODER_DIR)/huffman-coding.cpp $(IENCODER_DIR)/huffman-coding.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(ENCODER_DIR)/huffman-coding.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(ENCODER_DIR)/huffman-coding.cpp
 
 json-builder.o: $(ENCODER_DIR)/json-builder.cpp $(IENCODER_DIR)/json-builder.hpp
-	$(CXX) $(CPPFLAGS) $(CFLAGS) -I. -I$(INCLUDE_DIR) -I.. -c $(ENCODER_DIR)/json-builder.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(DEFS) -I. -I$(INCLUDE_DIR) -I.. -c $(ENCODER_DIR)/json-builder.cpp
 
 clean:
 	rm -f $(OBJS) $(PACKAGE) Makefile source/Makefile

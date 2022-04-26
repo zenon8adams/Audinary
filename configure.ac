@@ -19,23 +19,28 @@ AC_PROG_INSTALL
 AC_LANG([C++])
 
 AC_CONFIG_SRCDIR([driver.cpp])
-AC_CONFIG_HEADERS([config.h])
+#AC_CONFIG_HEADERS([config.h])
 AC_COPYRIGHT([Copyright (C) 2022 by Adesina Meekness. All Rights Reserved.])
 
 # Checks for custom headers
 AC_CHECK_HEADER([cAudio/cAudio.h], [AC_DEFINE([HAVE_CAUDIO_H], [1], [found cAudio.h])])
 AC_CHECK_HEADER([httpserver.hpp], [AC_DEFINE([HAVE_HTTPSERVER_H], [1], [found httpserver.h])])
 
+# Set default CXXFLAGS
+changequote({,})
+CXXFLAGS=`echo "$CXXFLAGS" | $SED -e 's/-g[0-9]*//g'`
+changequote([,])
+
+CXXFLAGS="$CXXFLAGS -std=c++17 -Wall"
+
 # Checks for libraries.
-AC_CHECK_LIB([cAudio], [ov_open], [LIBCAUDIO=-lcAudio])
-AC_SUBST(LIBCAUDIO)
+AC_SEARCH_LIBS([ov_open], [cAudio])
 
-AC_CHECK_LIB([fontconfig], [FcConfigGetCurrent])
+AC_SEARCH_LIBS([FcConfigGetCurrent], [fontconfig])
 
-AC_CHECK_LIB([httpserver], [_ZN10httpserver15string_response16get_raw_responseEv], [LIBHTTPSERVER=-lhttpserver], [
-    AC_MSG_ERROR([libhttpserver is required!])
+AC_SEARCH_LIBS([_ZN10httpserver15string_response16get_raw_responseEv], [httpserver],, [
+	AC_MSG_ERROR([libhttpserver is required!])
 ])
-AC_SUBST(LIBHTTPSERVER)
 
 AC_CHECK_LIB([pthread], [pthread_create])
 
