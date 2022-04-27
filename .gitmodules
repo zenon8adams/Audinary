@@ -1,0 +1,9 @@
+[submodule "third-party/libhttpserver"]
+	path = third-party/libhttpserver
+	url = https://github.com/etr/libhttpserver.git
+[submodule "third-party/cAudio"]
+	path = third-party/cAudio
+	url = https://github.com/R4stl1n/cAudio.git
+[submodule "third-party/audinary-pack"]
+	path = third-party/audinary-pack
+	url = https://github.com/zenon8adams/audinary-pack.git
