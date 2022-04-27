@@ -39,6 +39,7 @@ Audinary depends on:
 [audinary-pack](https://github.com/zenon8adams/audinary-pack): For translation to your locale
 
 ## Building
+After installing dependencies, run:
 ```
 ./bootstrap.sh
 mkdir build
