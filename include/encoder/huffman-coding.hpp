@@ -25,6 +25,9 @@ public:
     std::string retrieve( const char *filename);
     void save( const char *filename);
     const char *currentLocale();
+
+    std::string retrieve(const char *start, size_t bytes);
+
 private:
 
     struct Info
@@ -93,6 +96,9 @@ private:
     char *base_ = nullptr;
 
     HuffmanNode *root_ = nullptr;
+
+    std::string retrieveImpl(int sfd, size_t nbytes);
+
 };
 
 #endif //HUFFMAN_CODING_HPP

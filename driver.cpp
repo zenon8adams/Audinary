@@ -7,6 +7,8 @@
 #include <model/beeper.hpp>
 #include <model/textual-time.hpp>
 #include <sys/stat.h>
+#include <iostream>
+#include <libgen.h>
 
 #include "server/http-server.hpp"
 #include "include/encoder/huffman-coding.hpp"
@@ -67,8 +69,9 @@ int main( int ac, char *av[])
         extern char _binary_i18n_start[];
         extern char _binary_i18n_end[];
 
+        size_t i18n_bytes = ( char *)&_binary_i18n_end - ( char *)&_binary_i18n_start;
         HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
-        TextualTime::instance().setRefrenceLocalization( std::string((char *)&_binary_i18n_start, (char *)&_binary_i18n_end));
+        TextualTime::instance().setRefrenceLocalization( decoder.retrieve( ( const char *)&_binary_i18n_start, i18n_bytes));
 
         size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
         Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
@@ -86,51 +89,53 @@ int main( int ac, char *av[])
 
 #elif defined(DEVELOPMENT)
 
-    extern char _binary_beep_start[];
-    extern char _binary_beep_end[];
+//    extern char _binary_beep_start[];
+//    extern char _binary_beep_end[];
+//
+//    extern char _binary_i18n_start[];
+//    extern char _binary_i18n_end[];
+//
+//    size_t i18n_bytes = ( char *)&_binary_i18n_end - ( char *)&_binary_i18n_start;
+//
+//    HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
+//
+//    TextualTime::instance().setRefrenceLocalization( decoder.retrieve( ( const char *)&_binary_i18n_start, i18n_bytes));
+//
+//    size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
+//    Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
+//
+//    serve();
 
-    extern char _binary_i18n_start[];
-    extern char _binary_i18n_end[];
-
-    HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
-    TextualTime::instance().setRefrenceLocalization( std::string((char *)&_binary_i18n_start, (char *)&_binary_i18n_end));
-    size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
-    Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
-
-    if( ac >= 3)
-    {
 //        Beeper::instance()->installBeeper(av[ 1]);
-//        HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
-//        TextualTime::instance().setRefrenceLocalization( decoder.retrieve( av[ 2]));
+        HuffmanCoding decoder( HuffmanCoding::GeneratorMode::DECODE);
+        TextualTime::instance().setRefrenceLocalization( decoder.retrieve( av[ 1]));
 //        std::cout << decoder.retrieve( av[ 2]);
-
-/*        HuffmanCoding encoder(HuffmanCoding::GeneratorMode::ENCODE, av[2]);
-
-        char *path = strdup( av[ 2]);
-        char *dirmem  = strdup( av[ 2]);
-        char *dir     = dirname( dirmem);
-        char *filename = basename( path);
-        char *end = strchr( filename, '.');
-        std::string patch( dir);
-
-        patch.append( "/");
-        patch.append( filename, end);
-        patch.append( ".loc");
-
-        std::cout << patch;
-
-        encoder.save( patch.c_str());
-
-        free( path);
-        free( dirmem);*/
-    }
+        serve();
+//
+//        HuffmanCoding encoder(HuffmanCoding::GeneratorMode::ENCODE, av[1]);
+//
+//        char *path = strdup( av[ 1]);
+//        char *dirmem  = strdup( av[ 1]);
+//        char *dir     = dirname( dirmem);
+//        char *filename = basename( path);
+//        char *end = strchr( filename, '.');
+//        std::string patch( dir);
+//
+//        patch.append( "/");
+//        patch.append( filename, end);
+//        patch.append( ".loc");
+//
+//        std::cout << patch;
+//
+//        encoder.save( patch.c_str());
+//
+//        free( path);
+//        free( dirmem);
 
 
 /*    std::string currentTime;
     while( !( currentTime = TextualTime::get()).empty())
         std::ofstream("english.txt", std::ios::out | std::ios::app) << currentTime <<'\n';*/
-
-//    serve();
 
 #endif
 

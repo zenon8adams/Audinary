@@ -8,6 +8,7 @@
 #include <deque>
 #include <ctime>
 #include <sstream>
+#include <iostream>
 #include "model/numbers-to-words.hpp"
 #include "model/textual-time.hpp"
 #include "model/beeper.hpp"
@@ -90,7 +91,6 @@ int TextualTime::index()
 {
     if( _default.empty())
         return -1;
-
 
     auto time = std::find( _default.cbegin(), _default.cend(), TextualTime::get());
 

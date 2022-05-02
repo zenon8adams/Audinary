@@ -25,7 +25,7 @@
 
 #define REV64( value ) \
     ({ \
-    	auto qword = value;\
+        auto qword = value;\
         uint64_t m1  = 0x5555555555555555U, \
                  m2  = 0x3333333333333333U, \
                  m4  = 0x0F0F0F0F0F0F0F0FU, \
@@ -48,6 +48,7 @@
 
 static std::string encode( uint32_t val )
 {
+
     std::string sRep;
     if (val < 0x80) {
         sRep += (char)(val);
@@ -329,22 +330,19 @@ void HuffmanCoding::save( const char *filename)
     }
 }
 
-std::string HuffmanCoding::retrieve(const char *filename)
+std::string HuffmanCoding::retrieve(const char *start, size_t bytes)
 {
-    int sfd = open( filename, O_RDONLY);
-    if( sfd == -1)
-    {
-        syslog( LOG_ERR, "Unable to decode file");
-        return {};
-    }
+    int desps[ 2];
+    pipe( desps);   // Write into file descriptor desp[ 1] then read from it at desps[ 0]
 
-    struct stat prop{};
-    if( fstat(sfd, &prop) == -1)
-    {
-        syslog( LOG_ERR, "Unable to stat() file");
-        return {};
-    }
+    write( desps[ 1], start, bytes);
+    close( desps[ 1]);
 
+    return retrieveImpl( desps[ 0], bytes);
+}
+
+std::string HuffmanCoding::retrieveImpl( int sfd, size_t nbytes)
+{
     ssize_t actual = 0, out = 0;
     actual += read( sfd, &_header.MAGIC, sizeof( __MAGIC));
     if( strcmp( _header.MAGIC, __MAGIC) != 0)
@@ -352,7 +350,6 @@ std::string HuffmanCoding::retrieve(const char *filename)
         syslog( LOG_ERR, "Invalid file format");
         return {};
     }
-
     actual += read( sfd, &_header.version, sizeof( _header.version));
     actual += read( sfd, _header.locale, __LANG);
     actual += read( sfd, &_header.clength, sizeof( _header.clength) * 2);
@@ -384,7 +381,7 @@ std::string HuffmanCoding::retrieve(const char *filename)
     HuffmanNode *head = rebuildTree();
 
     ssize_t length, idx = 0;
-    char *buf = ( char *)calloc(  length = prop.st_size - actual, sizeof( char));
+    char *buf = ( char *)calloc(  length = nbytes - actual, sizeof( char));
     if( buf == nullptr)
     {
         syslog( LOG_ERR, "Memory allocation failed");
@@ -417,21 +414,42 @@ std::string HuffmanCoding::retrieve(const char *filename)
         if( mayblock != nullptr)
         {
             ssize_t left = _header.info_length - written;
-             /*
-              * Write the decoded sequence into the destination making sure that
-              * the decoded bytes equals the read bytes
-              */
+            /*
+             * Write the decoded sequence into the destination making sure that
+             * the decoded bytes equals the read bytes
+             */
             memcpy( ( &destination[ 0] + written),  &mayblock->information.quantity,
-                left < (ssize_t)__BLOCK_SIZE ? left : (ssize_t)__BLOCK_SIZE);
+                    left < (ssize_t)__BLOCK_SIZE ? left : (ssize_t)__BLOCK_SIZE);
             written += __BLOCK_SIZE;
         }
     }
 
     free( buf);
     free( _header.coding); _header.coding = nullptr;
+    close( sfd);
 
     return destination;
 }
+
+std::string HuffmanCoding::retrieve(const char *filename)
+{
+    int sfd = open( filename, O_RDONLY);
+    if( sfd == -1)
+    {
+        syslog( LOG_ERR, "Unable to decode file");
+        return {};
+    }
+
+    struct stat prop{};
+    if( fstat(sfd, &prop) == -1)
+    {
+        syslog( LOG_ERR, "Unable to stat() file");
+        return {};
+    }
+
+    return retrieveImpl( sfd, prop.st_size);
+}
+
 
 /*
  *  Correct byteGuess by confirming if the next byte seen is a continuation byte or
