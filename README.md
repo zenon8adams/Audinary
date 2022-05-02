@@ -38,6 +38,10 @@ Audinary depends on:
 
 [audinary-pack](https://github.com/zenon8adams/audinary-pack): For translation to your locale
 
+## Author Contact
+Email: zenon8adams@gmail.com<br/>
+LinkedIn: [A. Meekness](https://www.linkedin.com/in/adesina-m-059263134/)
+
 ## Building
 After installing dependencies, run:
 ```
