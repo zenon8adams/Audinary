@@ -21,9 +21,6 @@ AC_LANG([C++])
 AC_CONFIG_SRCDIR([driver.cpp])
 AC_COPYRIGHT([Copyright (C) 2022 by Adesina Meekness. All Rights Reserved.])
 
-# Checks for custom headers
-AC_CHECK_HEADER([httpserver.hpp], [AC_DEFINE([HAVE_HTTPSERVER_H], [1], [found httpserver.h])])
-
 # Set default CXXFLAGS
 changequote({,})
 CXXFLAGS=`echo "$CXXFLAGS" | sed -e 's/-g[0-9]*//g'`
@@ -62,10 +59,6 @@ if test "x${hour_notifier}" = xyes; then
 fi
 
 AC_SEARCH_LIBS([FcConfigGetCurrent], [fontconfig])
-
-AC_SEARCH_LIBS([_ZN10httpserver15string_response16get_raw_responseEv], [httpserver],, [
-	AC_MSG_ERROR([libhttpserver is required!])
-])
 
 AC_CHECK_LIB([pthread], [pthread_create])
 

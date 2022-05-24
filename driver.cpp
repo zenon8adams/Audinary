@@ -15,17 +15,6 @@
 
 #define PRODUCTION
 
-void serve()
-{
-    httpserver::webserver clock_server = httpserver::create_webserver( 3800);
-
-    ClockServerResource server_resource;
-    clock_server.register_resource( "/", &server_resource);
-    clock_server.start( true);
-
-    closelog();
-}
-
 int main( int ac, char *av[])
 {
 
@@ -52,7 +41,8 @@ int main( int ac, char *av[])
         exit(EXIT_FAILURE);
     }
 
-    if (chdir("/") < 0) {
+    if (chdir("/") < 0)
+    {
         syslog( LOG_ERR, "Execution of chdir() failed");
 
         closelog();
@@ -76,7 +66,7 @@ int main( int ac, char *av[])
         size_t beep_bytes = ( char *)&_binary_beep_end - ( char *)&_binary_beep_start;
         Beeper::instance()->installBeeper( ( const char *)&_binary_beep_start, beep_bytes);
 
-        serve();
+        serve( 3800);
 
         closelog();
     }

@@ -333,9 +333,9 @@ void HuffmanCoding::save( const char *filename)
 std::string HuffmanCoding::retrieve(const char *start, size_t bytes)
 {
     int desps[ 2];
-    pipe( desps);   // Write into file descriptor desp[ 1] then read from it at desps[ 0]
+    ( void)pipe( desps);   // Write into file descriptor desp[ 1] then read from it at desps[ 0]
 
-    write( desps[ 1], start, bytes);
+    ( void)write( desps[ 1], start, bytes);
     close( desps[ 1]);
 
     return retrieveImpl( desps[ 0], bytes);

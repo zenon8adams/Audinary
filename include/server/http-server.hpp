@@ -1,10 +1,12 @@
 #ifndef HTTP_SERVER
 #define HTTP_SERVER
 
-class ClockServerResource : public httpserver::http_resource
-{
-public:
-    const std::shared_ptr<httpserver::http_response> render_GET( const httpserver::http_request& request) override;
-};
+void failureExit( const char *msg, const char *detail);
+
+void failureExit( const char *msg);
+
+void handleClient( int sock);
+
+void serve( const int serv_port);
 
 #endif
