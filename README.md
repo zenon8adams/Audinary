@@ -34,8 +34,6 @@ Audinary depends on:
 
 [cAudio](https://github.com/R4stl1n/cAudio): For notification (Optional)
 
-[libhttpserver](https://github.com/etr/libhttpserver): For communication with the time daemon
-
 [audinary-pack](https://github.com/zenon8adams/audinary-pack): For translation to your locale
 
 ## Author Contact
