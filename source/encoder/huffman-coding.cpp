@@ -11,7 +11,7 @@
 #include <syslog.h>
 
 #define NO_OP           ((void)0)
-#define __I64_MAX      ((uint64_t)-1)   // Senitel that identifies a non-leaf node of the Huffman tree
+#define __I64_MAX      ((uint64_t)-1)   // Sentinel that identifies a non-leaf node of the Huffman tree
 #define __BLOCK_SIZE    sizeof(uint64_t)
 #define __MAGIC_NUMBER  4 + 3 + 1
 #define __MAGIC         "1.7.2.9"       // Magic number identifies the huffman encoded file (Courtesy: S.R. Ramalujan)

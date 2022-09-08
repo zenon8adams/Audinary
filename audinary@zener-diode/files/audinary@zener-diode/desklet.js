@@ -1,5 +1,4 @@
 const St             = imports.gi.St;
-const Graphene       = imports.gi.Graphene;
 const Desklet        = imports.ui.desklet;
 const DeskletManager = imports.ui.deskletManager;
 const Settings       = imports.ui.settings;

@@ -2,16 +2,15 @@
     #error "Sorry, your platform is unsuported."
 #endif
 
-#include <httpserver.hpp>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/stat.h>
 #include <syslog.h>
+#include <libgen.h>
 #include <model/beeper.hpp>
 #include <model/textual-time.hpp>
-#include <sys/stat.h>
-#include <iostream>
-#include <libgen.h>
-
-#include "server/http-server.hpp"
-#include "include/encoder/huffman-coding.hpp"
+#include <server/http-server.hpp>
+#include <encoder/huffman-coding.hpp>
 
 #define PRODUCTION
 

@@ -1,5 +1,7 @@
+#include <string>
 #include <cstring>
-#include "../../include/server/router.hpp"
+#include <cstdint>
+#include "server/router.hpp"
 
 std::string Router::generateResponse( const std::unordered_map<std::string, std::string>& params)
 {
@@ -10,8 +12,8 @@ std::string Router::generateResponse( const std::unordered_map<std::string, std:
     {
         auto iter_one   = eventPriority().find( IDX( one.first)),
             iter_other = eventPriority().find( IDX( other.first)),
-            senitel    = eventPriority().cend();
-        return ( iter_one == senitel ? 1 : iter_one->second) > ( iter_other == senitel ? 1 : iter_other->second);
+            sentinel    = eventPriority().cend();
+        return ( iter_one == sentinel ? 1 : iter_one->second) > ( iter_other == sentinel ? 1 : iter_other->second);
     });
 
     for( const auto& each : vparams)
