@@ -46,7 +46,7 @@ After installing dependencies, run:
 ./bootstrap.sh
 mkdir build
 cd build
-../configure --disable-hour-notifier --sysconfdir=/etc
+../configure --sysconfdir=/etc
 make
 ```
 
