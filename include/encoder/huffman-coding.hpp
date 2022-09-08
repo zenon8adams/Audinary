@@ -1,7 +1,6 @@
 #ifndef HUFFMAN_CODING_HPP
 #define HUFFMAN_CODING_HPP
 
-#include <cstdint>
 #include <set>
 #include <unordered_map>
 

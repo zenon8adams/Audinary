@@ -1,8 +1,6 @@
 #include <memory>
-#include <httpserver.hpp>
 #include "server/router.hpp"
-#include "../../include/server/http-server.hpp"
-
+#include "server/http-server.hpp"
 #include <syslog.h>
 #include <errno.h>
 #include <cstdio>
